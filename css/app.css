@@ -1,9 +1,9 @@
-body {
-  border: 1px solid red;
+a {
+  color: #ffffff;
 }
 
-a ,a:hover{
-  color: #F2F9F8;
+a:hover{
+  color: #DEF2F1;
 }
 
 .fa-list-alt{
@@ -11,5 +11,18 @@ a ,a:hover{
 }
 
 .header {
-  background-color: #282928;
+  background-color: #17252A;
+}
+
+.slide-panel {
+    background: #17252A;
+    height: 91.5vh;
+    width: 14em;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s;
+}
+
+.panel-hidden .slide-panel {
+    transform: translate3d(-14.2em, 0, 0);
+    transition: transform 0.2s;
 }
