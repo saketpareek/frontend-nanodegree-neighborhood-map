@@ -1,0 +1,15 @@
+body {
+  border: 1px solid red;
+}
+
+a ,a:hover{
+  color: #F2F9F8;
+}
+
+.fa-list-alt{
+  font-size: 2rem;
+}
+
+.header {
+  background-color: #282928;
+}
