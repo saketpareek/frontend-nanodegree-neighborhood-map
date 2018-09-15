@@ -1,3 +1,5 @@
+/* List icon styles */
+
 a {
   color: #ffffff;
 }
@@ -10,9 +12,13 @@ a:hover{
   font-size: 2rem;
 }
 
+/* Header styles */
+
 .header {
   background-color: #17252A;
 }
+
+/* Slide panel styles */
 
 .slide-panel {
     background: #17252A;
