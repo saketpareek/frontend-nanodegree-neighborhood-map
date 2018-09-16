@@ -33,7 +33,7 @@ let Model = function(data){
 
 
 let ViewModel = function(){
-  
+
   let self = this;
   this.locationList = ko.observableArray([]);
 
@@ -42,8 +42,6 @@ let ViewModel = function(){
   this.togglePanel = function(){
     $('body').toggleClass('panel-hidden');
   }
-
-
 
 // Grab each object from locationsArray and create new model for each object and push in locationList observable array
   locationsArray.forEach(function(loc){
