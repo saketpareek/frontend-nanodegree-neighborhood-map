@@ -42,3 +42,17 @@ a:hover{
     transform: translate3d(-15em, 0, 0);
     transition: transform 0.2s;
 }
+
+/* Custom style for default bootstrap classes */
+
+.list-group-item {
+  background-color: #17252A;
+}
+
+.list-group-item-action {
+  color: #fff;
+}
+
+.list-group-item:hover {
+  background-color: white;
+}

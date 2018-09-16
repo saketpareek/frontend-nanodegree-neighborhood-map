@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="panel-hidden">
 
+<body>
   <!-- Header with List icon and Heading  -->
   <header>
     <div class="container-fluid header text-white ml-0">
@@ -29,8 +29,16 @@
     </div>
   </div>
 
-  <div class="slide-panel">
-    <ul class="location-list"></ul>
+  <!-- <div class="slide-panel px-0">
+    <ul class="location-list pl-0" data-bind="foreach: locationList">
+      <li class="text-white py-3 px-2 border border-secondary" data-bind="text: name"></li>
+    </ul>
+  </div> -->
+
+  <div class="slide-panel px-0">
+    <div class="location-list list-group list-group-flush" data-bind="foreach: locationList">
+      <a href="#" class="list-group-item list-group-item-action" data-bind="text: name"></a>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
