@@ -14,5 +14,6 @@ function initMap() {
     });
     markers.push(marker);
   }
+  ko.applyBindings(new ViewModel());
   return markers;
 }

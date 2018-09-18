@@ -1,27 +1,19 @@
-// Get map using google maps API to show in map-container element
-// let map, marker;
+let ViewModel = function(){
 
-$(function(){
+  let self = this;
+  this.locationList = ko.observableArray([]);
+  let currMarker = self.locationList()[0];
 
-  let ViewModel = function(){
+  markers.forEach(function(loc){
+    self.locationList.push(loc);
+  });
 
-    let self = this;
-    this.locationList = ko.observableArray([]);
-    let currMarker = self.locationList()[0];
-
-    markers.forEach(function(loc){
-      console.log(loc.title);
-      self.locationList.push(loc);
-    });
-
-    // Function togglePanel to hide the slide-panel from screen
-    this.togglePanel = function(){
-      $('body').toggleClass('panel-hidden');
-    }
-
-    this.highlightMarker = function(e){
-      e.setAnimation(google.maps.Animation.BOUNCE);
-    }
+  // Function togglePanel to hide the slide-panel from screen
+  this.togglePanel = function(){
+    $('body').toggleClass('panel-hidden');
   }
-  ko.applyBindings(new ViewModel());
-});
+
+  this.highlightMarker = function(e){
+    e.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
