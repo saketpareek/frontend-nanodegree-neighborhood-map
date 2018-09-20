@@ -7,7 +7,7 @@ let ViewModel = function(){
 
 // Pushing each marker of markers array in LocationList observable array to keep track of.
   markers.forEach(function(marker){
-    self.locationList.push(merker);
+    self.locationList.push(marker);
   });
 
  // Forcing following function to execute after search keyword is entered.
