@@ -30,6 +30,7 @@
   </div>
 
   <div class="slide-panel px-0">
+    <input type="text" placeholder="Search" data-bind="value: searchedText, valueUpdate: 'afterkeydown'">
     <div class="location-list list-group list-group-flush" data-bind="foreach: locationList">
       <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: $parent.highlightMarker"></a>
     </div>
