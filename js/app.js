@@ -41,6 +41,7 @@ let ViewModel = function(){
 
   // Set animation on marker to bounce for 1500ms and then execute populateInfoWindow function
   this.highlightMarker = function(e){
+    self.togglePanel();
     e.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function(){
       e.setAnimation(null);
