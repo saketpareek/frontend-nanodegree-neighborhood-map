@@ -1,3 +1,4 @@
+// locationsArrayto store all the names and lat-lng coordinates of the markers in the map
 let locationsArray = [{
   name: 'Agrasen Ki Baoli',
   center: {lat: 28.626049, lng: 77.225038}

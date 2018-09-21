@@ -19,6 +19,7 @@ let ViewModel = function(){
     for (let i = 0; i < markers.length; i++) {
         if (markers[i].title.toLowerCase().includes(newvalue.toLowerCase())) {
             markers[i].setVisible(true);
+            console.log(markers[i]);
             // Pushing the visible markers in newList.
             newList.push(markers[i]);
         } else {
@@ -38,7 +39,24 @@ let ViewModel = function(){
     $('body').toggleClass('panel-hidden');
   }
 
+  // Set animation on marker to bounce for 1500ms and then execute populateInfoWindow function
   this.highlightMarker = function(e){
     e.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function(){
+      e.setAnimation(null);
+    }, 1500);
+    populateInfoWindow(e, largeInfowindow);
+    }
   }
+// Creates infowindow for each marker with content set to marker title
+function populateInfoWindow(marker, infowindow) {
+  infowindow.marker = marker;
+  console.log(infowindow.marker);
+  infowindow.setContent('<div>' + marker.title + '</div>');
+  infowindow.open(map, marker);
+  // Stop marker animation and set marker to null value
+  infowindow.addListener('closeclick',function(){
+    marker.setAnimation(null);
+    infowindow.setMarker = null;
+  });
 }
