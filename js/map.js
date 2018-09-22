@@ -39,11 +39,13 @@ function initMap() {
   return markers;
 }
 
+// Function mapError if google map does not load
 function mapError() {
   $('body').addClass('panel-hidden');
   $('#map-container').html('<div class="row justify-content-center"><h1 class="m-5 p-5 text-muted">Sorry, Google Map could not be loaded</h1></div>')
 }
 
+// fit boundaries of to bounds when window is resized
 window.onresize = function() {
   map.fitBounds(bounds);
 };

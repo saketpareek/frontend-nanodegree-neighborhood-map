@@ -48,13 +48,18 @@ let ViewModel = function(){
     populateInfoWindow(e, largeInfowindow);
     }
   }
-  // Creates infowindow for each marker with content set to marker title
+  // Creates infowindow for each marker
 function populateInfoWindow(marker, infowindow) {
   infowindow.marker = marker;
+  // Setting maximum width of infowindow
   infowindow.setOptions({maxWidth:250});
+  // Setting content of infowindow to marker title and waiting icon
   infowindow.setContent(`<div class="text-center">${marker.title}<br><br><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>`);
+  // Wikipedia Api Url and dataType set to jsonp
   const url = `http://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&list=search&titles=${marker.title}&pithumbsize=200&srsearch=${marker.title}`;
   const body = {dataType: 'jsonp'};
+  // Fetching reponse from api and retrieving data and then setting content of infowindow to the snippet from wikipedia reponse
+  // Catching error and setting content of infowindow to error message
   fetch(url, body)
     .then(response => response.json())
     .then(data => {

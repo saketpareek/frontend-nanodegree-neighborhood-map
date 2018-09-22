@@ -63,6 +63,7 @@ a:hover{
   font-size: 2em;
 }
 
+/* Slide panel scroll bar style */
 .list-group {
   max-height: 81vh;
   overflow-y: auto;
