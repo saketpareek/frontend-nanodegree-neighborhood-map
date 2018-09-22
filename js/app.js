@@ -59,6 +59,8 @@ function populateInfoWindow(marker, infowindow) {
     .then(response => response.json())
     .then(data => {
       infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a><p class="mt-3">Attribution: Wikipedia, <a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}">https://en.wikipedia.org/w/index.php?title=${marker.title}</a></p></div>`);
+    }).catch(e => {
+      infowindow.setContent(`<div class="text-center">${marker.title}</div><div><br><br><p class="text-danger">Sorry, Wikipedia API could not get loaded. Please try again!</p></div>`);
     });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value
