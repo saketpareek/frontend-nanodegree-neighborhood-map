@@ -53,14 +53,14 @@ let ViewModel = function(){
 function populateInfoWindow(marker, infowindow) {
   infowindow.marker = marker;
   infowindow.setOptions({maxWidth:250});
-  infowindow.setContent('<div class="text-center">' + marker.title + '</div>');
+  infowindow.setContent(`<div class="text-center">${marker.title}</div><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>`);
   const url = `http://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&list=search&titles=${marker.title}&pithumbsize=200&srsearch=${marker.title}`;
   const body = {dataType: 'jsonp'};
   fetch(url, body)
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      infowindow.setContent('<div class="text-center">' + marker.title + '</div>' + '<div>' + data.query.search[0].snippet + '</div>');
+      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}</div>`);
     });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value

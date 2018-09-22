@@ -56,3 +56,9 @@ a:hover{
 .list-group-item:hover {
   background-color: white;
 }
+
+/* font icon spinner style */
+
+.fa-spinner {
+  font-size: 2em;
+}
