@@ -54,7 +54,7 @@ function populateInfoWindow(marker, infowindow) {
   // Setting maximum width of infowindow
   infowindow.setOptions({maxWidth:250});
   // Setting content of infowindow to marker title and waiting icon
-  infowindow.setContent(`<div class="text-center">${marker.title}<br><br><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>`);
+  infowindow.setContent(`<div class="text-center iw-header text-white m-2">${marker.title}</div><div class="text-center m-3"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>`);
   // Wikipedia Api Url and dataType set to jsonp
   const url = `http://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&list=search&titles=${marker.title}&pithumbsize=200&srsearch=${marker.title}`;
   const body = {dataType: 'jsonp'};
@@ -63,9 +63,9 @@ function populateInfoWindow(marker, infowindow) {
   fetch(url, body)
     .then(response => response.json())
     .then(data => {
-      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a><p class="mt-3">Attribution: Wikipedia, <a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}">https://en.wikipedia.org/w/index.php?title=${marker.title}</a></p></div>`);
+      infowindow.setContent(`<div class="text-center iw-header text-white m-2">${marker.title}</div><div class="m-2"><p class="iw-text">${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a></p><p class="mt-3">Attribution: Wikipedia, <a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}">https://en.wikipedia.org/w/index.php?title=${marker.title}</a></p></div>`);
     }).catch(e => {
-      infowindow.setContent(`<div class="text-center">${marker.title}</div><div><br><br><p class="text-danger">Sorry, Wikipedia API could not get loaded. Please try again!</p></div>`);
+      infowindow.setContent(`<div class="text-center iw-header text-white m-2">${marker.title}</div><div class="m-2"><p class="iw-text text-danger">Sorry, Wikipedia API could not get loaded. Please try again!</p></div>`);
     });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value
