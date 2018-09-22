@@ -62,3 +62,9 @@ a:hover{
 .fa-spinner {
   font-size: 2em;
 }
+
+.list-group {
+  max-height: 81vh;
+  overflow-y: auto;
+  float: left;
+}
