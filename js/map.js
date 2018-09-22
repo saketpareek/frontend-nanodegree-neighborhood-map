@@ -5,7 +5,7 @@ let largeInfoWindow, bounds;
 function initMap() {
   // Make map with center coordinates and zoom level
   map = new google.maps.Map($('#map-container')[0], {
-    center: {lat: 28.631451, lng: 77.216667},
+    center: {lat: 28.613939, lng: 77.209021},
     zoom: 14
   });
 

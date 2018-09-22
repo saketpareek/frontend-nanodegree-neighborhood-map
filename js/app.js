@@ -59,8 +59,7 @@ function populateInfoWindow(marker, infowindow) {
   fetch(url, body)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}</div>`);
+      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a></div>`);
     });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value
