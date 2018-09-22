@@ -53,13 +53,13 @@ let ViewModel = function(){
 function populateInfoWindow(marker, infowindow) {
   infowindow.marker = marker;
   infowindow.setOptions({maxWidth:250});
-  infowindow.setContent(`<div class="text-center">${marker.title}</div><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>`);
+  infowindow.setContent(`<div class="text-center">${marker.title}<br><br><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>`);
   const url = `http://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&list=search&titles=${marker.title}&pithumbsize=200&srsearch=${marker.title}`;
   const body = {dataType: 'jsonp'};
   fetch(url, body)
     .then(response => response.json())
     .then(data => {
-      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a></div>`);
+      infowindow.setContent(`<div class="text-center">${marker.title}</div><div>${data.query.search[0].snippet}<a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}"> (Read more)</a><p class="mt-3">Attribution: Wikipedia, <a class="text-primary" href="https://en.wikipedia.org/w/index.php?title=${marker.title}">https://en.wikipedia.org/w/index.php?title=${marker.title}</a></p></div>`);
     });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value
