@@ -19,7 +19,6 @@ let ViewModel = function(){
     for (let i = 0; i < markers.length; i++) {
         if (markers[i].title.toLowerCase().includes(newvalue.toLowerCase())) {
             markers[i].setVisible(true);
-            console.log(markers[i]);
             // Pushing the visible markers in newList.
             newList.push(markers[i]);
         } else {

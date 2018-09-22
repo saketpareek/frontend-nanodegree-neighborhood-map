@@ -38,3 +38,8 @@ function initMap() {
   ko.applyBindings(new ViewModel());
   return markers;
 }
+
+function mapError() {
+  $('body').addClass('panel-hidden');
+  $('#map-container').html('<div class="row justify-content-center"><h1 class="m-5 p-5 text-muted">Sorry, Google Map could not be loaded</h1></div>')
+}
