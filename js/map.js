@@ -24,6 +24,7 @@ function initMap() {
     markers.push(marker);
     // Set animation on marker to bounce for 1500ms and then execute populateInfoWindow function
     marker.addListener('click', function() {
+      $('body').addClass('panel-hidden');
       let that = this;
       this.setAnimation(google.maps.Animation.BOUNCE);
       setTimeout(function(){

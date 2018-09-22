@@ -49,11 +49,19 @@ let ViewModel = function(){
     populateInfoWindow(e, largeInfowindow);
     }
   }
-// Creates infowindow for each marker with content set to marker title
+  // Creates infowindow for each marker with content set to marker title
 function populateInfoWindow(marker, infowindow) {
   infowindow.marker = marker;
-  console.log(infowindow.marker);
-  infowindow.setContent('<div>' + marker.title + '</div>');
+  infowindow.setOptions({maxWidth:250});
+  infowindow.setContent('<div class="text-center">' + marker.title + '</div>');
+  const url = `http://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=pageimages&list=search&titles=${marker.title}&pithumbsize=200&srsearch=${marker.title}`;
+  const body = {dataType: 'jsonp'};
+  fetch(url, body)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      infowindow.setContent('<div class="text-center">' + marker.title + '</div>' + '<div>' + data.query.search[0].snippet + '</div>');
+    });
   infowindow.open(map, marker);
   // Stop marker animation and set marker to null value
   infowindow.addListener('closeclick',function(){
